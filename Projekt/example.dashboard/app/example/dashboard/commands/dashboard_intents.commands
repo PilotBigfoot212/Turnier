@@ -1,0 +1,7 @@
+namespace example.dashboard
+
+intents {
+	intent OpenWebApp {
+		pagesToKeep = 0
+	}
+}

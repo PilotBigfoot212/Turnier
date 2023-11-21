@@ -1,0 +1,4 @@
+!namespace example.dashboard
+!default-language DE
+
+APP_NAME = Example Dashboard
