@@ -1,0 +1,18 @@
+namespace example.dashboard
+
+form HTMLPage {
+
+	header = DefaultHeader {
+		title = APP_NAME
+		contributionType = NONE
+	}
+
+	state read {
+		padding = none
+		WebAppFrame frame {
+			openInNewTab = false
+			url = `\'http://localhost:8082\'`
+			restEnabled = true
+		}
+	}
+}

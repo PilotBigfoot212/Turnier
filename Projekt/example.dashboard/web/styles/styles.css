@@ -1,0 +1,129 @@
+body {
+    margin: 40px;
+    height: calc(100vh - 80px);
+    font-family: "Segoe UI Light", "Segoe UI", "Lucida Sans", Arial, sans-serif;
+}
+  
+.wrapper {
+    height: calc(100vh - 80px);
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: [col1-start] 1fr [col2-start] 1fr [col3-start] 1fr [col4-start] 1fr [col4-end];
+    grid-template-rows: [row1-start] 98px [row2-start] 1fr [row3-start] 1fr [row4-start] 1fr [row5-start] 1fr [row5-end];
+    color: #444;
+}
+
+.line1-item1 {
+    grid-column: col1-start / col2-start;
+    grid-row: row2-start ;
+}
+.line1-item2 {
+    grid-column: col2-start / col3-start;
+    grid-row: row2-start ;
+}
+.line1-item3 {
+    grid-column: col3-start / col4-start;
+    grid-row: row2-start ;
+}
+.main-graph {
+    grid-column: col1-start / col4-start;
+    grid-row: row3-start / row5-end;
+}
+.sidebar-top {
+    grid-column: col4-start;
+    grid-row: row2-start / row4-start;
+}
+.sidebar-bottom {
+    grid-column: col4-start;
+    grid-row: row4-start / row5-end;
+}
+
+.selector {
+    background-color: white;
+    padding: 24px;
+    height: calc(50px+48px);
+    display:flex;
+    grid-column: col1-start / col4-end;
+    grid-row: row1-start;
+}
+
+.selector > .selection {
+    height: calc(100%);
+}
+
+.selector > .customerinfo {
+    flex: 1;
+    height: calc(100%);
+    display: grid;
+    grid-template-columns: [col1-start] 50px [col2-start] 1fr [col2-end];
+    grid-template-rows: [row1-start] 1fr [row2-start] 1fr [row2-end];
+}
+
+.selector > .customerinfo a {
+    font-size: 16px;
+    font-weight: 400;
+    color: #999;
+} 
+
+.selector > .selection > button {
+    height: 100%;
+}
+
+.customerinfo > .customertitle {
+    grid-column: col2-start;
+    grid-row: row1-start;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.customerinfo > .customerimage {
+    grid-column: col1-start;
+    grid-row: row1-start / row2-end;
+}
+
+.customerinfo > .customerimage img{
+    height: 100%;
+}
+
+.customerinfo > .customerdetail {
+    grid-column: col2-start;
+    grid-row: row2-start;
+}
+
+.item {
+    background-color: white;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.subTitle {
+    font-weight: 400;
+    font-size: 16px;
+    color: #999;
+}
+
+.kpi > .kpi-value {
+    font-weight: 700;
+    font-size: 4vmax;
+    padding: 10px;
+    color: rgb(85, 85, 85);
+    align-content: center;
+}
+
+.item > div:last-child {
+    flex: 1;
+}
+
+.gauge {
+    flex: 1;
+}
+
+.ct-bar {
+    stroke-width: 24px;
+}
