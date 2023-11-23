@@ -20,6 +20,9 @@ app.post('/erstellen-turnier', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // GET-Endpunkt für die HTML-Seite
 app.get('/erstellen-turnier', (req, res) => {
