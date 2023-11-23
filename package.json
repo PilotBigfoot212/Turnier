@@ -11,9 +11,7 @@
     "devStart": "nodemon server.js",
     "test": "nodemon test.js",
     "build": "npm install && node server.js",
-    "start": "node server.js"  // Neues Startskript hinzugefügt
-
-    
+    "start": "node server.js"     
   },
   "author": "",
   "license": "ISC",
