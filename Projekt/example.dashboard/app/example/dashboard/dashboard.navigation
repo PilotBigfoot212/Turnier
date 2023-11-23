@@ -1,8 +1,0 @@
-namespace example.dashboard
-
-flow {
-	on initialization => OpenWebApp
-	internal {
-		on OpenWebApp => HTMLPage
-	}
-}

@@ -1,4 +1,0 @@
-app example.dashboard {
-	name = APP_NAME
-	color = "#d81b60"
-}
