@@ -1,23 +1,42 @@
-const express = require ('express')
-const app = express()
-const mongoose = require ('mongoose')
-require('dotenv').config()
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const path = require('path');
 
-/**Sonst Warnung (node:40232) [MONGOOSE] DeprecationWarning: Mongoose: the `strictQuery` option will be switched back to `false` by default in Mongoose 7. Use `mongoose.set('strictQuery', false);` if you want to prepare for this change. Or use `mongoose.set('strictQuery', true);` to suppress this warning.
-(Use `node --trace-deprecation ...` to show where the warning was created)*/
-//mongoose.set('strictQuery', false);
+require('dotenv').config();
 
+const app = express();
 
-mongoose.connect(process.env.DATABASE_URL)
-const db = mongoose.connection
-db.on ('error', (error) => console.error (error))
-db.once ('open', () => console.log ('Connected to Database'))
+app.use(cors());
+app.use(express.json());
 
+const Turnier = require('./models/turnierModel');
 
-app.listen (3000, () => console.log('Server Started'))
+app.post('/erstellen-turnier', async (req, res) => {
+    try {
+        console.log('Received data:', req.body)
+        const turnier = await Turnier.create(req.body);
+        res.status(200).json(turnier);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({ message: error.message });
+    }
+});
 
+// GET-Endpunkt für die HTML-Seite
+app.get('/erstellen-turnier', (req, res) => {
+    res.sendFile(path.join(__dirname, 'erstellen-turnier.html'));
+});
 
+mongoose
+    .connect(process.env.DATABASE_URL)
+    .then(() => {
+        app.listen(3000, () => {
+            console.log('Node API app is running on port 3000');
+        });
 
-
-
-
+        console.log('connected to MongoDB');
+    })
+    .catch((error) => {
+        console.log(error);
+    });

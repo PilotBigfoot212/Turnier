@@ -14,6 +14,12 @@
         <div class="toolbar">
           <div class="toolbar"><paper-button class="primary" id="newButton">Turnier erstellen</paper-button></div>
         </div>
+        <script>
+          document.getElementById('newButton').addEventListener('click', function() {
+            // Hier leitest du den Benutzer zur create-tournament.html Seite weiter
+            window.location.href = 'erstellen-turnier.html';
+          });
+        </script>
       </div>
   </body>
 </html>

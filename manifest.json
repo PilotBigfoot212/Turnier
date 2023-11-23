@@ -1,0 +1,10 @@
+{
+  "name": "Turnier",
+  "short_name": "Turnier",
+  "theme_color": "#CCFFCC",
+  "background_color": "#CCFFCC",
+  "display": "fullScreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/erstellen-turnier.html"
+}

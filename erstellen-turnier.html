@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Turnier erstellen</title>
+</head>
+<body>
+  <h1>Turnier erstellen</h1>
+
+  <link rel="manifest" href="manifest.json">
+
+  <form id="tournamentForm">
+    <label for="tournamentName">Turniername:</label>
+    <input type="text" id="tournamentName" name="tournamentName" required>
+
+    <label for="startDate">Startdatum:</label>
+    <input type="date" id="startDate" name="startDate" required>
+
+    <label for="endDate">Enddatum:</label>
+    <input type="date" id="endDate" name="endDate" required>
+
+    <label for="location">Veranstaltungsort:</label>
+    <input type="text" id="location" name="location" required>
+
+    <button type="submit">Turnier erstellen</button>
+  </form>
+
+  <script>
+    document.getElementById('tournamentForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const tournamentData = {
+        turnierName: document.getElementById('tournamentName').value,
+    startDatum: document.getElementById('startDate').value,
+    endDatum: document.getElementById('endDate').value,
+    location: document.getElementById('location').value,
+      };
+
+      fetch('http://localhost:3000/erstellen-turnier', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(tournamentData),
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Turnier erstellt:', data);
+        alert('Turnier erfolgreich erstellt!');
+      })
+      .catch(error => {
+        console.error('Fehler beim Senden der Daten:', error);
+        alert('Fehler beim Erstellen des Turniers. Bitte versuche es erneut.');
+      });
+    });
+  </script>
+</body>
+</html>
