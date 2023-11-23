@@ -26,7 +26,8 @@ app.post('/turnier',async(req, res) => {
         console.log (error.message);
         res.status(500).json({message: error.message})
     }
-})
+}) 
+
 
 mongoose.
 connect(process.env.DATABASE_URL)
