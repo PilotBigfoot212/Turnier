@@ -1,0 +1,25 @@
+const mongoose = require ('mongoose')
+
+const turnierSchema = mongoose.Schema(
+    {
+        turnierName:{
+            type: String,
+            required: [true, "Bitte gebe den Turniernamen an."]
+        },
+        startDatum:{
+            //Todo: Sollte noch in Datumformat geändert werden
+            type:String
+        },
+        endDatum:{
+            //Todo: Sollte noch in Datumformat geändert werden
+            type:String
+        }
+    },
+    {
+        timestamps:true
+    }
+)
+
+const Turnier = mongoose.model('Turnier', turnierSchema)
+
+module.exports = Turnier;

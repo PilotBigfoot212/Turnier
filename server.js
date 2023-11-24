@@ -8,7 +8,7 @@ const app = express();
 
 app.use(express.json());
 
-const Turnier = require('./models/turnierModel');
+const Turnier = require('./src/models/turnierModel');
 
 //Ge
 app.get('/', (req, res) => {
