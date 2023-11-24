@@ -9,7 +9,6 @@
   
   "scripts": {
     "devStart": "nodemon server.js",
-    "test": "nodemon test.js",
     "build": "npm install && node server.js",
     "start": "node server.js"     
   },
