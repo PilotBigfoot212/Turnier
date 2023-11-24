@@ -39,9 +39,10 @@ app.post('/erstellen-turnier', async (req, res) => {
 mongoose
     .connect(process.env.DATABASE_URL)
     .then(() => {
-    /*    app.listen(3000, () => {
+    //  für das Deployment on localhost
+     app.listen(3000, () => {
             console.log('Server is Running');
-        });*/
+        });
 
         console.log('connected to MongoDB');
     })
