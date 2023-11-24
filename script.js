@@ -1,4 +1,4 @@
-// script.js
+/*script.js
 
 // Funktion zum Sammeln der Eingaben und zum Auslösen der Submit-Anfrage
 function create_turnier() {
@@ -32,4 +32,4 @@ function create_turnier() {
         console.error('Fehler beim Senden der Daten:', error);
         alert(`Fehler beim Erstellen des Turniers. Bitte versuche es erneut. Fehlermeldung: ${error.message}`);
     });
-}    
+}    */
