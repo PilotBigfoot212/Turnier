@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
 // GET-Endpunkt für die Erstellung von Turnieren
 app.get('/create-turnier', (req, res) => {
-    res.sendFile(path.join(__dirname, './src/app/turnier/create-turnier.html'));
+    res.sendFile(path.join(__dirname, './src/app/turnier/create-turnier/create-turnier.html'));
 });
 
 // Post Endpunkt für die Erstellung von Turnieren

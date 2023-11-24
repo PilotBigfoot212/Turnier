@@ -1,7 +1,7 @@
 // script.js
 
 // Funktion zum Sammeln der Eingaben und zum Auslösen der Submit-Anfrage
-function turnier_erstellen() {
+function create_turnier() {
     const tournamentData = {
        tournamentName: document.getElementById('tournamentName').value,
         startDate: document.getElementById('startDate').value,
