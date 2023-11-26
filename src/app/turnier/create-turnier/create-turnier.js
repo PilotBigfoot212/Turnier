@@ -1,4 +1,5 @@
-document.getElementById("tournamentForm").addEventListener("submit", function (event) {
+document.getElementById("tournamentForm")
+.addEventListener("submit", function (event) {
     event.preventDefault();
   
     const tournamentData = {
