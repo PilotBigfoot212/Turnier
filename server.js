@@ -39,7 +39,6 @@ app.post('/create-turnier', async (req, res) => {
 mongoose
     .connect(process.env.DATABASE_URL)
     .then(() => {
-    //  für das Deployment on localhost
      app.listen(3000, () => {
             console.log('Server is Running on port 3000');
         });
