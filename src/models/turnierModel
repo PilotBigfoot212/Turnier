@@ -4,15 +4,18 @@ const turnierSchema = mongoose.Schema(
     {
         turnierName:{
             type: String,
-            required: [true, "Bitte gebe den Turniernamen an."]
+            rrequired: [true, "Bitte gebe den Turniernamen an."]
         },
-        startDatum:{
-            //Todo: Sollte noch in Datumformat geändert werden
-            type:String
+        startDatum: {
+            type: Date, 
+            required: [true, "Bitte das Startdatum angeben."] 
         },
-        endDatum:{
-            //Todo: Sollte noch in Datumformat geändert werden
-            type:String
+        endDatum: {
+            type: Date, 
+            required: [true, "Bitte das Enddatum angeben."] 
+        },
+        Standort:{
+            type: String,
         }
     },
     {
