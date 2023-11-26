@@ -14,7 +14,7 @@ const turnierSchema = mongoose.Schema(
             type: Date, 
             required: [true, "Bitte das Enddatum angeben."] 
         },
-        Standort:{
+        standort:{
             type: String,
         }
     },
