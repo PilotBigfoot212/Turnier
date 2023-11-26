@@ -10,7 +10,7 @@ app.use(express.json());
 
 const Turnier = require('./src/models/turnierModel');
 
-//Ge
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
