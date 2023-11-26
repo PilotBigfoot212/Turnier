@@ -36,7 +36,8 @@ app.get('/turniere', async (req, res) => {
 // Post Endpunkt für die Erstellung von Turnieren
 app.post('/create-turnier', async (req, res) => {
     try {
-        res.sendFile(path.join(__dirname, './src/app/turnier/create-turnier.js'));
+  //      res.sendFile(path.join(__dirname, './src/app/turnier/create-turnier.js'));
+        res.sendFile(path.join(__dirname, './src/app/turnier/anzeige-turniere/anzeige-turnier.html'));
 
         console.log('Received data:', req.body)
         const turnier = await Turnier.create(req.body);
