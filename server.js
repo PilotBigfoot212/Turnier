@@ -41,11 +41,11 @@ mongoose
     .then(() => {
     //  für das Deployment on localhost
      app.listen(3000, () => {
-            console.log('Server is Running');
+            console.log('Server is Running on port 3000');
         });
 
         console.log('connected to MongoDB');
     })
     .catch((error) => {
-        console.log(error);
+        console.log('Error connecting to MongoDB:', error);
     });
