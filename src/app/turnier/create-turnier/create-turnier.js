@@ -1,4 +1,3 @@
-// script.js
 document.getElementById("tournamentForm").addEventListener("submit", function (event) {
     event.preventDefault();
   
@@ -6,10 +5,10 @@ document.getElementById("tournamentForm").addEventListener("submit", function (e
       turnierName: document.getElementById("tournamentName").value,
       startDatum: document.getElementById("startDate").value,
       endDatum: document.getElementById("endDate").value,
-      Standort: document.getElementById("standort").value,
+      veranstaltungsort: document.getElementById("veranstaltungsort").value, // Corrected field name
     };
   
-    fetch("/create-turnier", {
+    fetch("https://turniersystem.onrender.com/create-turnier", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,5 +29,4 @@ document.getElementById("tournamentForm").addEventListener("submit", function (e
         console.error("Fehler beim Senden der Daten:", error);
         alert("Fehler beim Erstellen des Turniers. Bitte versuche es erneut.");
       });
-  });
-  
+});
