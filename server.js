@@ -9,6 +9,7 @@ const app = express();
 app.use(express.json());
 
 const Turnier = require('./src/models/turnierModel');
+app.use(express.static(path.join(__dirname, 'src')));
 
 
 app.get('/', (req, res) => {
