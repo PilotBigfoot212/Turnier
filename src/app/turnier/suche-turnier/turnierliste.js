@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   
   function fetchTurniere() {
-    fetch("https://turniersystem.onrender.com/turniere") 
+    fetch("https://turniersystem.onrender.com/turniere")
     .then(response => response.json())
     .then(turniere => {
       const turnierListeBody = document.getElementById('turnierListeBody');

@@ -9,7 +9,6 @@ const app = express();
 app.use(express.json());
 
 const Turnier = require('./src/models/turnierModel');
-app.use(express.static(path.join(__dirname, 'src')));
 
 
 app.get('/', (req, res) => {
@@ -22,7 +21,7 @@ app.get('/create-turnier', (req, res) => {
     res.sendFile(path.join(__dirname, './src/app/turnier/create-turnier/create-turnier.html'));
 });
 
-app.get('/turniere', async (req, res) => {
+/*app.get('/turniere', async (req, res) => {
     res.sendFile(path.join(__dirname, './src/app/turnier/suche-turnier/anzeige-turnier.html'));
 /*
     try {
@@ -31,8 +30,19 @@ app.get('/turniere', async (req, res) => {
     } catch (error) {
         console.log(error.message);
         res.status(500).json({ message: error.message });
-    }*/
+    }
 });
+*/
+
+app.get('/turniere', async (req, res) => {
+    try {
+        const turniere = await Turnier.find();
+        res.status(200).json(turniere);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({ message: error.message });
+    }});
+
 
 // Post Endpunkt für die Erstellung von Turnieren
 app.post('/create-turnier', async (req, res) => {
