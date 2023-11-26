@@ -17,8 +17,8 @@
       <label for="endDate">Enddatum:</label>
       <input type="date" id="endDate" name="endDate" required />
 
-      <label for="standort">Veranstaltungsort:</label>
-      <input type="text" id="standort" name="standort" required />
+      <label for="veranstaltungsort">Veranstaltungsort:</label>
+      <input type="text" id="veranstaltungsort" name="veranstaltungsort" required />
 
       <button type="submit">Turnier erstellen</button>
     </form>
@@ -33,7 +33,7 @@
             turnierName: document.getElementById("tournamentName").value,
             startDatum: document.getElementById("startDate").value,
             endDatum: document.getElementById("endDate").value,
-            standort: document.getElementById("standort").value,
+            veranstaltungsort: document.getElementById("veranstaltungsort").value,
           };
 
           fetch("https://turniersystem.onrender.com/create-turnier", {
