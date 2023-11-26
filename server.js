@@ -18,11 +18,11 @@ app.get('/', (req, res) => {
 
 // GET-Endpunkt für die Erstellung von Turnieren
 app.get('/create-turnier', (req, res) => {
-    res.sendFile(path.join(__dirname, './src/app/turnier/create-turnier/create-turnier.html'));
+    res.sendFile(path.join(__dirname, './src/app/turnier/create-turnier.html'));
 });
 
 app.get('/turniere', async (req, res) => {
-    res.sendFile(path.join(__dirname, './src/app/turnier/anzeige-turniere/anzeige-turnier.html'));
+    res.sendFile(path.join(__dirname, './src/app/turnier/anzeige-turnier.html'));
 /*
     try {
         const turniere = await Turnier.find();
@@ -36,11 +36,11 @@ app.get('/turniere', async (req, res) => {
 // Post Endpunkt für die Erstellung von Turnieren
 app.post('/create-turnier', async (req, res) => {
     try {
+        res.sendFile(path.join(__dirname, './src/app/turnier/create-turnier.js'));
+
         console.log('Received data:', req.body)
         const turnier = await Turnier.create(req.body);
         res.status(200).json(turnier);
-        res.redirect('/turniere');
-
     } catch (error) {
         console.log(error.message);
         res.status(500).json({ message: error.message });
