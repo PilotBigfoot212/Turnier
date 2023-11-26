@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Turnierliste</title>
 </head>
 <body>
   <h1>Turnierliste</h1>
 
-  <ul id="turnierListe"></ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Turniername</th>
+        <th>Startdatum</th>
+        <th>Enddatum</th>
+        <th>Veranstaltungsort</th>
+      </tr>
+    </thead>
+    <tbody id="turnierListeBody"></tbody>
+  </table>
 
-  <script src="./src/app/turnier/turnierliste.js"></script>
+  <script src="./turnierliste.js"></script>
 </body>
 </html>

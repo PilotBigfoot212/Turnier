@@ -4,27 +4,18 @@ document.addEventListener("DOMContentLoaded", function() {
   
   function fetchTurniere() {
     fetch("https://turniersystem.onrender.com/turniere") 
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        renderTurniere(data);
-      })
-      .catch(error => {
-        console.error("Fehler beim Laden der Turniere:", error);
+    .then(response => response.json())
+    .then(turniere => {
+      const turnierListeBody = document.getElementById('turnierListeBody');
+      turniere.forEach(turnier => {
+        const row = turnierListeBody.insertRow();
+        row.insertCell(0).textContent = turnier.turnierName;
+        row.insertCell(1).textContent = turnier.startDatum;
+        row.insertCell(2).textContent = turnier.endDatum;
+        row.insertCell(3).textContent = turnier.veranstaltungsort;
       });
-  }
-  
-  function renderTurniere(turniere) {
-    const turnierListe = document.getElementById("turnierListe");
-  
-    turniere.forEach(turnier => {
-      const li = document.createElement("li");
-      li.textContent = `${turnier.turnierName} - ${turnier.startDatum} bis ${turnier.endDatum}, Ort: ${turnier.location}`;
-      turnierListe.appendChild(li);
-    });
-  }
+    })
+    .catch(error => console.error('Fehler beim Abrufen der Turnierliste:', error));
+};
+
   
