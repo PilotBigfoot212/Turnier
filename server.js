@@ -23,15 +23,13 @@ app.get('/create-turnier', (req, res) => {
 
 
 app.get('/turniere', async (req, res) => {
-    /*try {
+    try {
         const turniere = await Turnier.find();
         res.status(200).json(turniere);
     } catch (error) {
         console.log(error.message);
         res.status(500).json({ message: error.message });
-    }*/
-    res.sendFile(path.join(__dirname, './src/app/turnier/suche-turnier/anzeige-turniere.html'));
-
+    }
 }
     );
 
