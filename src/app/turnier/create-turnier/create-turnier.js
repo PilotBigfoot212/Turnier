@@ -5,7 +5,7 @@ document.getElementById("tournamentForm").addEventListener("submit", function (e
       turnierName: document.getElementById("tournamentName").value,
       startDatum: document.getElementById("startDate").value,
       endDatum: document.getElementById("endDate").value,
-      veranstaltungsort: document.getElementById("veranstaltungsort").value, // Corrected field name
+      veranstaltungsort: document.getElementById("veranstaltungsort").value, 
     };
   
     fetch("https://turniersystem.onrender.com/create-turnier", {
