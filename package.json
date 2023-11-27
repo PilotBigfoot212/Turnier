@@ -6,22 +6,26 @@
   "engines": {
     "node": ">=7 <19"
   },
-  
   "scripts": {
     "devStart": "nodemon server.js",
     "build": "npm install && node server.js",
-    "start": "node server.js"     
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@smartdesign/header-layout": "^2.9.0",
+    "@smartdesign/lit-input": "^6.2.7",
     "@smartdesign/styles": "^3.4.0",
+    "@smartdesign/button": "^4.10.0",
     "@smartdesign/web-api": "^4.18.0",
     "cors": "^2.8.5",
+    "es6-promise": "^4.2.8",
     "express": "^4.18.2",
+    "hyperhtml": "^2.34.2",
+    "mongodb": "^3.6.9",
     "mongoose": "^8.0.1",
-    "mongodb": "^3.6.9"
-
+    "query-string": "^8.1.0"
   },
   "devDependencies": {
     "dotenv": "^16.3.1",
