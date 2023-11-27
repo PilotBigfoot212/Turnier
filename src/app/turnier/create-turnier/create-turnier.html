@@ -1,26 +1,75 @@
 <!DOCTYPE html>
 <html lang="de">
 <meta charset="UTF-8" />
-<sd-header-layout>
-  <div class="header large" slot="header">Turnier erstellen dd</div>
 
-  <body>
+<script src="../../../../node_modules/@smartdesign/header-layout/dist/header-layout-with-externals.js"></script>
+<script src="../../../../node_modules/@smartdesign/button/dist/button-with-externals.js"></script>
+<script src="../../../../node_modules/@smartdesign/lit-input/dist/input-with-externals.js"></script>
 
-    <form id="tournamentForm">
-      <label for="tournamentName">Turniername:</label>
-      <input type="text" id="tournamentName" name="tournamentName" required />
 
-      <label for="startDate">Startdatum:</label>
-      <input type="date" id="startDate" name="startDate" required />
+<link rel="stylesheet" href="../../../style/style.css">
 
-      <label for="endDate">Enddatum:</label>
-      <input type="date" id="endDate" name="endDate" required />
+<div class="examples">
 
-      <label for="veranstaltungsort">Veranstaltungsort:</label>
-      <input type="text" id="veranstaltungsort" name="veranstaltungsort" required />
+  <form id="tournamentForm">
 
-      <button type="submit">Turnier erstellen</button>
-    </form>
+  <div class="example-container">
+    <span>Turniername</span>
+    <sd-lit-input id="tournamentName" type="text" name="tournamentName" required  class="smartdesign-global-smartsearch" placeholder="Fußballturnier Controlling"></sd-lit-input>
+  </div>
+
+    <div class="example-container">
+      <span>Startdatum</span>
+      <sd-lit-input type="date" id="startDate" name="startDate" required class="smartdesign-global-smartsearch"></sd-lit-input>
+    </div>
+
+    <div class="example-container">
+      <span>Anmeldeschluss</span>
+      <sd-lit-input type="date" id="endDate" name="endDate" required class="smartdesign-global-smartsearch"></sd-lit-input>
+    </div>
+
+    <div class="example-container">
+      <span>Ort</span>
+      <sd-lit-input id="place" type="text" name="place" required  class="smartdesign-global-smartsearch" placeholder="Karlsruhe"></sd-lit-input>
+    </div>
+
+    <div class="example-container">
+      <span>Startzeit</span>
+      <sd-lit-input id="startTime" type="time" name="startTime" required  class="smartdesign-global-smartsearch"></sd-lit-input>
+    </div>
+
+    <div class="example-container">
+      <span>Kosten</span>
+      <sd-lit-input type="text" id="currency" name="currency" required placeholder="€" oninput="formatCurrency(this)" class="smartdesign-global-smartsearch"></sd-lit-input>
+    </div>
+
+    <!--Darstellung als Dezimalzahl-->
+
+    <script>
+      function formatCurrency(input) {
+        // Beispiel: Formatierung auf zwei Dezimalstellen
+        input.value = parseFloat(input.value).toFixed(2);
+      }
+    </script>
+
+  </form>
+</div>
+
+
+<div class="parent-container">
+  <sd-button type="submit" primary onclick="validateForm()" > Turnier erstellen </sd-button>
+</div>
+
+<script>
+  function validateForm() {
+    const inputs = document.querySelectorAll('.example-container sd-lit-input');
+
+    for (const input of inputs) {
+      if (!input.value) {
+        alert('Bitte füllen Sie alle Felder aus.');
+        return;
+      }}}
+</script>
 
     <script>
       document

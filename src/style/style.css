@@ -127,3 +127,37 @@ body {
 .ct-bar {
     stroke-width: 24px;
 }
+.sd-lit-input {
+    min-height: 60px;
+    margin: 0 10px;
+    width: 400px;
+    outline: none;
+}
+
+.example-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.example-container > span {
+    width: 400px;
+    text-align: left;
+
+}
+
+.sd-web-app {
+    display: inline-block;
+}
+
+.sd-web-app > * {
+    /* Simulate a layout with spacing */
+    margin: 8px;
+}
+.sd-button {
+    --sd-button-max-icon-size: 50px;
+    --sd-button-content-padding: margin-right;
+}
+.sd-button span {
+    margin: 8px;
+}
