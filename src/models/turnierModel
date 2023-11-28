@@ -16,6 +16,15 @@ const turnierSchema = mongoose.Schema(
         },
         veranstaltungsort:{
             type: String,
+            required: [true, "Bitte den Veranstaltungsort angeben."] 
+        },
+        startZeit: {
+            type: String, 
+            required: [true, "Bitte die Startzeit angeben."]
+        },
+        kosten: {
+            type: String,
+            required: [true, "Bitte die Kosten angeben."]
         }
     },
     {

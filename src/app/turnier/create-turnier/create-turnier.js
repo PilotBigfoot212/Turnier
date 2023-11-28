@@ -7,6 +7,8 @@ document.getElementById("tournamentForm")
       startDatum: document.getElementById("startDate").value,
       endDatum: document.getElementById("endDate").value,
       veranstaltungsort: document.getElementById("veranstaltungsort").value, 
+      startZeit:document.getElementById("startZeit").value,
+      kosten: document.getElementById("kosten").value
     };
   
     fetch("https://turniersystem.onrender.com/create-turnier", {
