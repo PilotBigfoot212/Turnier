@@ -8,6 +8,24 @@ const app = express();
 
 app.use(express.json());
 
+app.use('/node_modules/@smartdesign', express.static(
+    path.join(__dirname, 'node_modules', '@smartdesign'),
+    {
+        setHeaders: (res) => {
+            res.type('application/javascript');
+        },
+    }
+));
+
+app.use('/style', express.static(
+    path.join(__dirname, 'src', 'style'),
+    {
+        setHeaders: (res) => {
+            res.type('text/css');
+        },
+    }
+));
+
 const Turnier = require('./src/models/turnierModel');
 
 
@@ -45,8 +63,6 @@ app.post('/create-turnier', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
-
-
 
 
 mongoose
