@@ -154,7 +154,7 @@ body {
     /* Simulate a layout with spacing */
     margin: 8px;
 }
-.sd-button {
+sd-button {
     --sd-button-max-icon-size: 50px;
     --sd-button-content-padding: margin-right;
     display: grid;
