@@ -11,8 +11,6 @@
 
 <div class="examples">
 
-  <form id="tournamentForm">
-
   <div class="example-container">
     <span>Turniername</span>
     <sd-lit-input id="turnierName" type="text" name="turnierName" required  class="smartdesign-global-smartsearch" placeholder="Fußballturnier Controlling"></sd-lit-input>
@@ -52,14 +50,13 @@
       }
     </script>
 
-  </form>
 </div>
 
-
+<form id="tournamentForm">
 <div class="parent-container">
   <sd-button type="submit" primary onclick="validateForm()" > Turnier erstellen </sd-button>
 </div>
-
+</form>
 <script>
   function validateForm() {
     const inputs = document.querySelectorAll('.example-container sd-lit-input');
