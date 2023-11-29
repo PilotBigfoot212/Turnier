@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function() {
         row.insertCell(1).textContent = turnier.startDatum;
         row.insertCell(2).textContent = turnier.endDatum;
         row.insertCell(3).textContent = turnier.veranstaltungsort;
+        row.insertCell(4).textContent = turnier.startZeit;
+        row.insertCell(5).textContent = turnier.kosten;
       });
     })
     .catch(error => console.error('Fehler beim Abrufen der Turnierliste:', error));
