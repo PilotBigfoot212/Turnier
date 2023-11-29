@@ -1,14 +1,32 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" xmlns="http://www.w3.org/1999/html">
 <meta charset="UTF-8" />
 
 <script src="../../../../node_modules/@smartdesign/header-layout/dist/header-layout-with-externals.js"></script>
 <script src="../../../../node_modules/@smartdesign/button/dist/button-with-externals.js"></script>
 <script src="../../../../node_modules/@smartdesign/lit-input/dist/input-with-externals.js"></script>
+<script src="../../../../node_modules/@smartdesign/lit-input/dist/input-with-externals.js"></script>
+<script src="../../../../node_modules/@smartdesign/lit-input/dist/input-with-externals.js"></script>
 
 
 <link rel="stylesheet" href="../../../style/style.css">
 
+
+<head>
+  <title></title>
+  <div id="declarative-example-root">
+    <base href="../../../../node_modules/@smartdesign/icons/toolbar/">
+    <sd-toolbar>
+      <sd-button icon="refresh.svg" slot="left" onclick="reloadPage()"></sd-button>
+      <h2 slot="middle">Allgemein</h2>
+      <sd-button icon="cancel.svg" slot="right" onclick="redirectToHomePage()"></sd-button>
+    </sd-toolbar>
+  </div>
+
+</head>
+
+
+<body>
 <div class="examples">
 
   <div class="example-container">
@@ -66,6 +84,15 @@
         alert('Bitte füllen Sie alle Felder aus.');
         return;
       }}}
+  function redirectToHomePage() {
+    // Hier die Basis-URL der aktuellen Seite abrufen und auf die Hauptseite weiterleiten
+    window.location.href = window.location.origin;
+  }
+
+  function reloadPage() {
+    // Seite neu laden
+    window.location.reload();
+  }
 </script>
 
     <script>

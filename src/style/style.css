@@ -163,3 +163,17 @@ sd-button {
     margin: 8px;
     display: grid;
 }
+
+sd-toolbar {
+    border-bottom: 1px solid #ccc;
+    display: flex;
+}
+
+sd-toolbar h2 {
+    width: 100%;
+    margin: 0;
+    border: none;
+    text-align: center;
+    line-height: 32px;
+    font-weight: lighter;
+}
