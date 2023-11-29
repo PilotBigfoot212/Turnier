@@ -157,6 +157,7 @@ body {
 .sd-button {
     --sd-button-max-icon-size: 50px;
     --sd-button-content-padding: margin-right;
+    display: grid;
 }
 .sd-button span {
     margin: 8px;
