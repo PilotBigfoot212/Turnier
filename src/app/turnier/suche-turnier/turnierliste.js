@@ -18,6 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     })
     .catch(error => console.error('Fehler beim Abrufen der Turnierliste:', error));
-};
+}
 
   
