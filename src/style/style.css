@@ -135,7 +135,7 @@ body {
 }
 
 .example-container {
-    display: flex;
+    display: grid;
     align-items: center;
     margin-bottom: 8px;
 }
@@ -160,4 +160,5 @@ body {
 }
 .sd-button span {
     margin: 8px;
+    display: grid;
 }
