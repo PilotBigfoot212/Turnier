@@ -9,6 +9,20 @@
 
 <link rel="stylesheet" href="../../../style/style.css">
 
+<head>
+
+  <title></title>
+  <div id="declarative-example-root">
+    <base href="../../../../node_modules/@smartdesign/icons/toolbar/">
+    <sd-toolbar>
+      <sd-button icon="refresh.svg" slot="left" onclick="reloadPage()"></sd-button>
+      <h2 slot="middle">Allgemein</h2>
+      <sd-button icon="cancel.svg" slot="right" onclick="redirectToHomePage()"></sd-button>
+    </sd-toolbar>
+  </div>
+
+</head>
+
 <div class="examples">
 
   <div class="example-container">
