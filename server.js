@@ -17,6 +17,14 @@ app.use('/node_modules/@smartdesign', express.static(
     }
 ));
 
+app.use('/src/style', express.static(
+    path.join(__dirname, 'src', 'style'),
+    {
+        setHeaders: (res) => {
+            res.type('text/css');
+        },
+    }
+));
 app.use('/style', express.static(
     path.join(__dirname, 'src', 'style'),
     {
@@ -25,7 +33,6 @@ app.use('/style', express.static(
         },
     }
 ));
-
 const Turnier = require('./src/models/turnierModel');
 
 
