@@ -19,6 +19,8 @@
     "@smartdesign/styles": "^3.4.0",
     "@smartdesign/button": "^4.10.0",
     "@smartdesign/web-api": "^4.18.0",
+    "@smartdesign/toolbar": "^3.7.1",
+    "@smartdesign/icons": "^2.7.0",
     "cors": "^2.8.5",
     "es6-promise": "^4.2.8",
     "express": "^4.18.2",
