@@ -3,16 +3,17 @@ const TurnierController = require('./src/controllers/turnierController.js');
 
 class TurnierRouter {
     constructor() {
-        this.router = express.Router();
+        this.router = express();
         this.turnierController = new TurnierController();
         this.initializeRoutes();
     }
 
     initializeRoutes() {
-        this.router.get('/', this.turnierController.getTurniere.bind(this.turnierController));
         this.router.get('/', (req, res) => {
             res.sendFile(path.join(__dirname, '..', 'index.html'));
         });
+        this.router.get('/', this.turnierController.getTurniere.bind(this.turnierController));
+        
 
         this.router.get('/turnier', this.turnierController.getTurniere.bind(this.turnierController));
 
