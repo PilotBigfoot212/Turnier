@@ -10,10 +10,21 @@ class TurnierRouter {
 
     initializeRoutes() {
         this.router.get('/', this.turnierController.getTurniere.bind(this.turnierController));
-        this.router.get('/turnier', this.turnierController.getTurniere.bind(this.turnierController));
-        this.router.get('/create-turnier', this.turnierController.getTurniere.bind(this.turnierController));
+        this.router.get('/', (req, res) => {
+            res.sendFile(path.join(__dirname, '..', 'index.html'));
+        });
 
-        this.router.post('/create-turnier', this.turnierController.createTurnier.bind(this.turnierController));
+        this.router.get('/turnier', this.turnierController.getTurniere.bind(this.turnierController));
+
+
+       
+        this.router.get('/create-turnier', (req, res) => {
+            res.sendFile(path.join(__dirname, 'app', 'turnier', 'create-turnier', 'create-turnier.html'));
+        });
+
+        this.router.post('/create-turnier', (req, res) => {
+            res.sendFile(path.join(__dirname, 'app', 'turnier', 'create-turnier', 'create-turnier.html'));
+        });
     }
 
     getRouter() {
