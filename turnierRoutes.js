@@ -1,5 +1,5 @@
 const express = require('express');
-const TurnierController = require('../controllers/turnierController');
+const TurnierController = require('../../controllers/turnierController');
 
 class TurnierRouter {
     constructor() {
