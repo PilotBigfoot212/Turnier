@@ -1,3 +1,4 @@
+/* const Turnier = require("../../../models/turnierModel");
 document.addEventListener("DOMContentLoaded", function() {
     fetchTurniere();
   });
