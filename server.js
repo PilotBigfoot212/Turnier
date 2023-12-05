@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 require('dotenv').config();
 
-const TurnierRouter = require('./src/app/turnier/turnierRoutes');
+const TurnierRouter = require('./turnierRoutes');
 
 const app = express();
 
