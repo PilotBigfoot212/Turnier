@@ -1,5 +1,5 @@
 const express = require('express');
-const TurnierController = require('../../controllers/turnierController');
+const TurnierController = require('src\controllers\turnierController.js');
 
 class TurnierRouter {
     constructor() {
@@ -11,7 +11,7 @@ class TurnierRouter {
     initializeRoutes() {
         this.router.get('/turnier', this.turnierController.getTurniere.bind(this.turnierController));
         this.router.post('/create-turnier', this.turnierController.createTurnier.bind(this.turnierController));
-        this.router.get('/create-turnier', this.turnierController.getTurniere.bind(this.turnierController))
+        this.router.get('/create-turnier', this.turnierController.getTurniere.bind(this.turnierController));
     }
 
     getRouter() {

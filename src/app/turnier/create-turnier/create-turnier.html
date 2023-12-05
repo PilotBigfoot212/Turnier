@@ -55,20 +55,15 @@
       <sd-lit-input type="text" id="kosten" name="kosten" required placeholder="€" oninput="formatCurrency(this)" class="smartdesign-global-smartsearch"></sd-lit-input>
     </div>
 
-    <!--Darstellung als Dezimalzahl-->
-
     <script>
       function formatCurrency(input) {
-        // Beispiel: Formatierung auf zwei Dezimalstellen
         input.value = parseFloat(input.value).toFixed(2);
       }
       function redirectToHomePage() {
-        // Hier die Basis-URL der aktuellen Seite abrufen und auf die Hauptseite weiterleiten
         window.location.href = window.location.origin;
       }
 
       function reloadPage() {
-        // Seite neu laden
         window.location.reload();
       }
     </script>
