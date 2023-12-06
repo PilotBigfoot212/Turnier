@@ -1,4 +1,4 @@
-const Turnier = require("../../../models/turnierModel");
+/*const Turnier = require("../../../models/turnierModel");
 document.addEventListener("DOMContentLoaded", function() {
     fetchTurniere();
   });

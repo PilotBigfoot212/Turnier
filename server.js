@@ -49,7 +49,8 @@ app.get('/create-turnier', (req, res) => {
 app.get('/turniere', (req, res) => {
     res.sendFile(path.join(__dirname, './src/app/turnier/suche-turnier/anzeige-turnier.html'));
 });
-app.get('/turniere', async (req, res) => {
+
+app.get('/recent-turniere', async (req, res) => {
     try {
         const recentTurniere = await Turnier.find().sort({ _id: -1 }).limit(5);
         res.status(200).json(recentTurniere);

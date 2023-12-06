@@ -40,7 +40,7 @@
     });
 
     function fetchRecentTurniere() {
-      fetch("https://turniersystem.onrender.com/turniere")
+      fetch("https://turniersystem.onrender.com/recent-turniere")
               .then(response => response.json())
               .then(turniere => {
                 displayTurniere(turniere, "Kürzlich hinzugefügt");
