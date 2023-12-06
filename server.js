@@ -52,13 +52,13 @@ app.get('/', (req, res) => {
 
 // GET-Endpunkt für die Erstellung von Turnieren
 app.get('/create-turnier', (req, res) => {
-    app.use('/src/app/turnier/create-turnier', express.static(
-        path.join(__dirname, 'src', 'app','turnier')
-    ));
     res.sendFile(path.join(__dirname, './src/app/turnier/create-turnier/create-turnier.html'));
 });
 
 app.get('/turniere', (req, res) => {
+    app.use('/src/app/turnier/suche-turnier', express.static(
+        path.join(__dirname, 'src', 'app','turnier','suche-turniere')
+    ));
     res.sendFile(path.join(__dirname, './src/app/turnier/suche-turnier/anzeige-turnier.html'));
 });
 app.get('/turnierSuche',(req,res)=>{
