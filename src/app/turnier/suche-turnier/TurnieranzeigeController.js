@@ -1,9 +1,16 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const turnierController = new TurnierController();
+  turnierController.fetchRecentTurniere();
+  turnierController.fetchBeliebteTurniere();
+  turnierController.fetchFreiePlaetze();
+});
+
 class TurnierController {
   async fetchRecentTurniere() {
     try {
       const response = await fetch("https://turniersystem.onrender.com/recent-turniere");
       const turniere = await response.json();
-      this.displayTurniere(turniere);
+      this.displayTurniere(turniere, 'Kürzlich hinzugefügt');
     } catch (error) {
       console.error('Fehler beim Abrufen der Turnierliste:', error);
     }
@@ -19,13 +26,16 @@ class TurnierController {
     // Verwenden Sie einen ähnlichen Ansatz wie bei fetchRecentTurniere
   }
 
-  displayTurniere(turniere) {
+  displayTurniere(turniere, heading) {
     const turnierListe = document.querySelector('sd-list');
-    
-    // Füge die Überschrift für die Turnierliste hinzu
+
+    // Leere vorhandene Inhalte
+    turnierListe.innerHTML = '';
+
+    // Füge die Überschrift für jedes Set von Turnieren hinzu
     const headingElement = document.createElement('div');
     headingElement.classList.add('sd-content-heading');
-    headingElement.textContent = 'Kürzlich hinzugefügt';
+    headingElement.textContent = heading;
     turnierListe.appendChild(headingElement);
 
     turniere.forEach(turnier => {
@@ -36,12 +46,3 @@ class TurnierController {
     });
   }
 }
-
-// Erstellen Sie eine Instanz der Klasse und verwenden Sie diese, um die Funktionen aufzurufen
-const turnierController = new TurnierController();
-
-document.addEventListener("DOMContentLoaded", function () {
-  turnierController.fetchRecentTurniere();
-  turnierController.fetchBeliebteTurniere();
-  turnierController.fetchFreiePlaetze();
-});
