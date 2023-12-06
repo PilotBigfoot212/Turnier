@@ -65,8 +65,8 @@ app.get('/recent-turniere', async (req, res) => {
 });
 app.get('/alle-turniere', async (req, res) => {
     try {
-        const recentTurniere = await Turnier.find();
-        res.status(200).json(recentTurniere);
+        const alleTurniere = await Turnier.find();
+        res.status(200).json(alleTurniere);
     } catch (error) {
         console.log(error.message);
         res.status(500).json({ message: error.message });

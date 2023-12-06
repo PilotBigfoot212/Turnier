@@ -8,7 +8,7 @@
 
   <link rel="stylesheet" href="../../../style/style.css">
 
-  <title></title>
+  <title>Turnierliste</title>
   <div id="declarative-example-root">
     <base href="../../../../node_modules/@smartdesign/icons/toolbar/">
     <sd-toolbar>
@@ -25,54 +25,8 @@
   <!-- Hier werden die Turniere direkt zur sd-list hinzugefügt -->
 </sd-list>
 
-<div class="sd-content-heading">Aktuell beliebt</div>
-<sd-list-item caption="Rik Lapham" description="Student" icon="icon.svg"></sd-list-item>
-<sd-list-item caption="Gunner Dewsbury" description="Student" icon="icon.svg"></sd-list-item>
-<div class="sd-content-heading">Plätze frei</div>
-<sd-list-item caption="Rik Lapham" description="Student" icon="icon.svg"></sd-list-item>
-<sd-list-item caption="Gunner Dewsbury" description="Student" icon="icon.svg"></sd-list-item>
+<script src="../../../src/app/turnier/suche-turnier/TurnieranzeigeController.js"></script>
+<script src="../../../src/app/turnier/main.js"></script> <!-- Hier kannst du deine Haupt-JavaScript-Datei einbinden -->
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetchRecentTurniere();
-    fetchBeliebteTurniere();
-    fetchFreiePlaetze();
-  });
-
-  function fetchRecentTurniere() {
-    fetch("https://turniersystem.onrender.com/recent-turniere")
-            .then(response => response.json())
-            .then(turniere => {
-              displayTurniere(turniere);
-            })
-            .catch(error => console.error('Fehler beim Abrufen der Turnierliste:', error));
-  }
-
-  function fetchBeliebteTurniere() {
-    // Fügen Sie hier den Code hinzu, um beliebige Turniere abzurufen (z.B., die ersten 5)
-    // Verwenden Sie einen ähnlichen Ansatz wie bei fetchRecentTurniere
-  }
-
-  function fetchFreiePlaetze() {
-    // Fügen Sie hier den Code hinzu, um weitere beliebige Turniere abzurufen (z.B., die nächsten 5)
-    // Verwenden Sie einen ähnlichen Ansatz wie bei fetchRecentTurniere
-  }
-
-  function displayTurniere(turniere) {
-    const turnierListe = document.querySelector('sd-list');
-    const headingElement = document.createElement('div');
-    headingElement.classList.add('sd-content-heading');
-    turnierListe.appendChild(headingElement);
-
-    turniere.forEach(turnier => {
-      const listItem = document.createElement('sd-list-item');
-      listItem.caption = turnier.turnierName;
-      listItem.description = `Startdatum: ${turnier.startDatum}, Enddatum: ${turnier.endDatum}, Veranstaltungsort: ${turnier.veranstaltungsort}`;
-      turnierListe.appendChild(listItem);
-    });
-  }
-</script>
 </body>
 </html>
-
-
