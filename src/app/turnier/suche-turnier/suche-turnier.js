@@ -1,50 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Füge einen Event-Listener zum Such-Button hinzu
-    const suchButton = document.getElementById("suchButton");
-    suchButton.addEventListener("click", starteSuche);
+    fetchRecentTurniere();
+    fetchBeliebteTurniere();
+    fetchFreiePlaetze();
   });
-  
-  function starteSuche() {
-    const suchbegriff = document.getElementById("suchbegriff").value;
-  
-    if (!suchbegriff) {
-      alert("Bitte gib einen Suchbegriff ein.");
-      return;
-    }
-  
-    sucheTurniere();
+
+  function fetchRecentTurniere() {
+    fetch("https://turniersystem.onrender.com/recent-turniere")
+            .then(response => response.json())
+            .then(turniere => {
+              displayTurniere(turniere);
+            })
+            .catch(error => console.error('Fehler beim Abrufen der Turnierliste:', error));
   }
-  
-  function sucheTurniere() {
-    const suchbegriff = document.getElementById("suchbegriff").value;
-  
-    // Hier rufe deine API auf, um nach Turnieren zu suchen
-    fetch(`https://turniersystem.onrender.com/alle-turniere`)
-      .then(response => response.json())
-      .then(turniere => {
-        // Rufe eine Funktion auf, um die Suchergebnisse anzuzeigen
-        zeigeTurniereAn(turniere);
-      })
-      .catch(error => {
-        console.error('Fehler bei der Turniersuche:', error);
-        alert('Es ist ein Fehler bei der Turniersuche aufgetreten. Bitte versuchen Sie es später erneut.');
-      });
+
+  function fetchBeliebteTurniere() {
+    // Fügen Sie hier den Code hinzu, um beliebige Turniere abzurufen (z.B., die ersten 5)
+    // Verwenden Sie einen ähnlichen Ansatz wie bei fetchRecentTurniere
   }
-  
-  function zeigeTurniereAn(turniere) {
-    const ergebnisContainer = document.getElementById("ergebnisContainer");
-    ergebnisContainer.innerHTML = ""; // Leere den Container
-  
-    if (turniere.length === 0) {
-      ergebnisContainer.innerHTML = "<p>Keine passenden Turniere gefunden.</p>";
-      return;
-    }
-  
-    // Durchlaufe die gefundenen Turniere und füge sie zum Container hinzu
+
+  function fetchFreiePlaetze() {
+    // Fügen Sie hier den Code hinzu, um weitere beliebige Turniere abzurufen (z.B., die nächsten 5)
+    // Verwenden Sie einen ähnlichen Ansatz wie bei fetchRecentTurniere
+  }
+
+  function displayTurniere(turniere) {
+    const turnierListe = document.querySelector('sd-list');
+    const headingElement = document.createElement('div');
+    headingElement.classList.add('sd-content-heading');
+    turnierListe.appendChild(headingElement);
+
     turniere.forEach(turnier => {
-      const turnierElement = document.createElement("div");
-      turnierElement.innerHTML = `<p>${turnier.turnierName} - ${turnier.veranstaltungsort}</p>`;
-      ergebnisContainer.appendChild(turnierElement);
+      const listItem = document.createElement('sd-list-item');
+      listItem.caption = turnier.turnierName;
+      listItem.description = `Startdatum: ${turnier.startDatum}, Enddatum: ${turnier.endDatum}, Veranstaltungsort: ${turnier.veranstaltungsort}`;
+      turnierListe.appendChild(listItem);
     });
   }
-  
