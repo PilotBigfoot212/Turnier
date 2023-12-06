@@ -1,5 +1,4 @@
 class ScriptLoader {
-
     constructor(script) {
     this.script = script;
     this.scriptElement = document. createElement('script');

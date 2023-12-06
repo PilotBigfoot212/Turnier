@@ -5,12 +5,6 @@ const app = express();
 
 require('dotenv').config();
 
-app.use(express.static('./src/app/turnier'));
-
-app.get('/test', (req, res) => {
-   res.sendFile(__dirname + '/test.html');
-});
-
 app.use(express.json());
 
 app.use('/node_modules/@smartdesign', express.static(
@@ -38,6 +32,16 @@ app.use('/style', express.static(
         },
     }
 ));
+
+
+app.get('/test', (req, res) => {
+    app.use('/src/app/turnier', express.static(
+        path.join(__dirname, 'src', 'app','turnier')
+    ));
+    res.sendFile(path.join(__dirname, './src/app/turnier/test.html'));
+});
+
+
 const Turnier = require('./src/models/turnierModel');
 
 
@@ -48,6 +52,9 @@ app.get('/', (req, res) => {
 
 // GET-Endpunkt für die Erstellung von Turnieren
 app.get('/create-turnier', (req, res) => {
+    app.use('/src/app/turnier/create-turnier', express.static(
+        path.join(__dirname, 'src', 'app','turnier')
+    ));
     res.sendFile(path.join(__dirname, './src/app/turnier/create-turnier/create-turnier.html'));
 });
 
