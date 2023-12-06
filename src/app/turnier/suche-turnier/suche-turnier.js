@@ -1,8 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Füge hier gegebenenfalls Initialisierungslogik hinzu
+document.addEventListener("DOMContentLoaded", function () {
+    // Füge einen Event-Listener zum Such-Button hinzu
+    const suchButton = document.getElementById("suchButton");
+    suchButton.addEventListener("click", starteSuche);
   });
   
-  function sucheTurniere() {
+  function starteSuche() {
     const suchbegriff = document.getElementById("suchbegriff").value;
   
     if (!suchbegriff) {
@@ -10,14 +12,23 @@ document.addEventListener("DOMContentLoaded", function() {
       return;
     }
   
+    sucheTurniere();
+  }
+  
+  function sucheTurniere() {
+    const suchbegriff = document.getElementById("suchbegriff").value;
+  
     // Hier rufe deine API auf, um nach Turnieren zu suchen
-    fetch(`"https://turniersystem.onrender.com/alle-turniere`)
+    fetch(`https://turniersystem.onrender.com/alle-turniere`)
       .then(response => response.json())
       .then(turniere => {
         // Rufe eine Funktion auf, um die Suchergebnisse anzuzeigen
         zeigeTurniereAn(turniere);
       })
-      .catch(error => console.error('Fehler bei der Turniersuche:', error));
+      .catch(error => {
+        console.error('Fehler bei der Turniersuche:', error);
+        alert('Es ist ein Fehler bei der Turniersuche aufgetreten. Bitte versuchen Sie es später erneut.');
+      });
   }
   
   function zeigeTurniereAn(turniere) {
