@@ -41,6 +41,7 @@ app.get('/', (req, res) => {
 });
 
 
+
 // GET-Endpunkt für die Erstellung von Turnieren
 app.get('/create-turnier', (req, res) => {
     res.sendFile(path.join(__dirname, './src/app/turnier/create-turnier/create-turnier.html'));
@@ -49,6 +50,9 @@ app.get('/create-turnier', (req, res) => {
 app.get('/turniere', (req, res) => {
     res.sendFile(path.join(__dirname, './src/app/turnier/suche-turnier/anzeige-turnier.html'));
 });
+app.get('/turnierSuche',(req,res)=>{
+    res.sendFile(path.join(__dirname,'./src/app/turnier/suche-turnier/suche-turniere.html'))
+})
 
 app.get('/recent-turniere', async (req, res) => {
     try {
@@ -59,6 +63,16 @@ app.get('/recent-turniere', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+app.get('/alle-turniere', async (req, res) => {
+    try {
+        const recentTurniere = await Turnier.find();
+        res.status(200).json(recentTurniere);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({ message: error.message });
+    }
+});
+
 
 
 // Post Endpunkt für die Erstellung von Turnieren

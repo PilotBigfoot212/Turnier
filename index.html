@@ -13,6 +13,8 @@
   <div>
     <button id="anzeigenButton">Turniere anzeigen</button>
     <button id="erstellenButton">Turnier erstellen</button>
+    <button id="turnierSucheButton">Turnier suchen</button>
+
   </div>
 
   <script>
@@ -24,6 +26,11 @@
     document.getElementById('erstellenButton').addEventListener('click', function() {
       // Weiterleitung zur Turniererstellungs-Seite
       window.location.href = 'https://turniersystem.onrender.com/create-turnier';
+    });
+
+    document.getElementById('turnierSucheButton').addEventListener('click', function() {
+      // Weiterleitung zur Turniersuche-Seite
+      window.location.href = 'https://turniersystem.onrender.com/turnierSuche';
     });
     
   </script>
