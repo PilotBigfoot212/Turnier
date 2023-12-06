@@ -1,10 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const app = express();
 
 require('dotenv').config();
 
-const app = express();
+app.use(express.static('./src/app/turnier'));
+
+app.get('/test', (req, res) => {
+   res.sendFile(__dirname + '/test.html');
+});
 
 app.use(express.json());
 
@@ -39,7 +44,6 @@ const Turnier = require('./src/models/turnierModel');
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
-
 
 
 // GET-Endpunkt für die Erstellung von Turnieren

@@ -1,7 +1,25 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const turnierController = new TurnierController();
+class ScriptLoader {
 
-    turnierController.fetchRecentTurniere();
-    turnierController.fetchBeliebteTurniere();
-    turnierController.fetchFreiePlaetze();
-});
+    constructor(script) {
+    this.script = script;
+    this.scriptElement = document. createElement('script');
+    this. head = document. querySelector('head');
+    }
+
+    load() {
+    return new Promise((resolve, reject) => {
+    this.scriptElement.src = this.script;
+    this.scriptElement.onload = e => resolve(e);
+    this.scriptElement.onerror = e => reject(e);
+    this.head. appendChild(this.scriptElement);
+    });
+    }
+}
+    
+const loader = new ScriptLoader('test.js');
+
+const button = document.querySelector("button");
+
+loader.load().then(e => console.log(e)).catch(e => console.error(e));
+
+button.onclick = _ => loader.load().then(e => console.log(e)).catch(e => console.error(e));
