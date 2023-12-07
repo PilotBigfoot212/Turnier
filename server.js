@@ -17,6 +17,15 @@ app.use('/node_modules/@smartdesign', express.static(
     }
 ));
 
+app.use('/node_modules/@smartdesign', express.static(
+    path.join(__dirname, 'node_modules', '@smartdesign'),
+    {
+        setHeaders: (res) => {
+            res.type('image/svg');
+        },
+    }
+));
+
 app.use('/src/style', express.static(
     path.join(__dirname, 'src', 'style'),
     {
