@@ -6,7 +6,7 @@ const turnierController = require('../controllers/turnierController');
 router.get('/create-turnier', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/html/create-turnier.html'));
 });
-
+//TODO wird nicht richitg anzeigt
 router.get('/turniere',  (req, res) => {
     res.sendFile(path.join(__dirname, '../public/html/anzeige-turnier.html'));
 });
