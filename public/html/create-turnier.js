@@ -59,6 +59,7 @@ async function createTurnier() {
 
 
 function submitForm() {
+    console.log("submitForm wird aufgerufen");
     if (validateForm()) {
         createTurnier();
     }
