@@ -1,10 +1,3 @@
-console.log("create-turnier.js loaded");
-
-document.getElementById("tournamentForm").addEventListener("submit", function (event) {
-    event.preventDefault(); 
-    submitForm();
-});
-
 function formatCurrency(input) {
     input.value = parseFloat(input.value).toFixed(2);
 }
@@ -18,8 +11,6 @@ function reloadPage() {
 }
 
 function validateForm() {
-    console.log("validateForm wird aufgerufen");
-
     const inputs = document.querySelectorAll('.example-container sd-lit-input');
 
     for (const input of inputs) {
@@ -33,8 +24,7 @@ function validateForm() {
 }
 
 async function createTurnier() {
-    console.log("createTurnier wird aufgerufen");
-    const tournamentData = {
+        const tournamentData = {
         turnierName: document.getElementById("turnierName").value,
         startDatum: document.getElementById("startDatum").value,
         endDatum: document.getElementById("endDatum").value,
@@ -68,7 +58,6 @@ async function createTurnier() {
 
 
 function submitForm() {
-    console.log("submitForm wird aufgerufen");
     if (validateForm()) {
         createTurnier();
     }
