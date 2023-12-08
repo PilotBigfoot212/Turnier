@@ -1,3 +1,10 @@
+console.log("create-turnier.js loaded");
+
+document.getElementById("tournamentForm").addEventListener("submit", function (event) {
+    event.preventDefault(); 
+    submitForm();
+});
+
 function formatCurrency(input) {
     input.value = parseFloat(input.value).toFixed(2);
 }
@@ -11,6 +18,8 @@ function reloadPage() {
 }
 
 function validateForm() {
+    console.log("validateForm wird aufgerufen");
+
     const inputs = document.querySelectorAll('.example-container sd-lit-input');
 
     for (const input of inputs) {
@@ -35,7 +44,7 @@ async function createTurnier() {
     };
 
     try {
-        const response = await fetch("https://turniersystem.onrender.com/api/create-turnier", {
+        const response = await fetch("/api/create-turnier", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -63,5 +72,4 @@ function submitForm() {
     if (validateForm()) {
         createTurnier();
     }
-    return false; 
 }
