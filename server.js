@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const turnierRoutes = require('./routes/turnierRoutes'); 
 
 require('dotenv').config();
 
@@ -11,7 +10,6 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve files from node_modules
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/public/styles', express.static(
@@ -22,12 +20,22 @@ app.use('/public/styles', express.static(
         },
     }
 ));
-app.use(turnierRoutes);
+
 
 const Turnier = require('./models/turnierModel');
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html', 'index.html'));
+});
+
+app.get('/recent-turniere', async (req, res) => {
+    try {
+        const recentTurniere = await Turnier.find().sort({ _id: -1 }).limit(5);
+        res.status(200).json(recentTurniere);
+      } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ message: error.message });
+      };
 });
 
 mongoose
