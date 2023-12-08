@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function fetchRecentTurniere() {
     //TODO geht das auch ohne zwischenseite? als Fkt?
-    fetch("https://turniersystem.onrender.com/recent-turniere")
+    fetch("/recent-turniere")
             .then(response => response.json())
             .then(turniere => {
               displayTurniere(turniere);
