@@ -6,14 +6,13 @@
     <script src="../../../../node_modules/@smartdesign/header-layout/dist/header-layout-with-externals.js"></script>
     <script src="../../../../node_modules/@smartdesign/button/dist/button-with-externals.js"></script>
     <script src="../../../../node_modules/@smartdesign/lit-input/dist/input-with-externals.js"></script>
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <div id="declarative-example-root">
-        <!-- <base href="../../../../node_modules/@smartdesign/icons/toolbar/"> -->
         <sd-toolbar>
-            <sd-button icon="refresh.svg" slot="left" onclick="reloadPage()"></sd-button>
+            <sd-button icon="../../../../node_modules/@smartdesign/icons/toolbar/refresh.svg" slot="left" onclick="reloadPage()"></sd-button>
             <h2 slot="middle">Allgemein</h2>
-            <sd-button icon="cancel.svg" slot="right" onclick="redirectToHomePage()"></sd-button>
-        </sd-toolbar>
+            <sd-button icon="../../../../node_modules/@smartdesign/icons/toolbar/cancel.svg" slot="right" onclick="redirectToHomePage()"></sd-button>
+        </sd-toolbar>        
     </div>
 </head>
 <body>
@@ -42,6 +41,11 @@
             <span>Kosten</span>
             <sd-lit-input type="text" id="kosten" name="kosten" required placeholder="€" oninput="formatCurrency(this)" class="smartdesign-global-smartsearch"></sd-lit-input>
         </div>
+        <form id="tournamentForm">
+            <div class="parent-container">
+              <sd-button type="submit" primary onclick="submitForm()" > Turnier erstellen </sd-button>
+            </div>
+            </form>
         <script src= "./create-turnier.js"></script>
     </div>
 </body>
