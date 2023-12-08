@@ -24,6 +24,7 @@ function validateForm() {
 }
 
 async function createTurnier() {
+    console.log("createTurnier wird aufgerufen");
     const tournamentData = {
         turnierName: document.getElementById("turnierName").value,
         startDatum: document.getElementById("startDatum").value,
@@ -49,6 +50,7 @@ async function createTurnier() {
         const data = await response.json();
         console.log("Turnier erstellt:", data);
         alert("Turnier erfolgreich erstellt!");
+        return false;
     } catch (error) {
         console.error("Fehler beim Senden der Daten:", error);
         alert("Fehler beim Erstellen des Turniers. Bitte versuche es erneut.");

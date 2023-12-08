@@ -37,6 +37,7 @@ app.get('/recent-turniere', async (req, res) => {
         res.status(500).json({ message: error.message });
       };
 });
+
 app.post('/api/create-turnier', async (req, res) => {
     try {
         const tournamentData = req.body;
