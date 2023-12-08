@@ -2,28 +2,28 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8" />
-    <title></title>
+    <title>Turnier erstellen</title>
     <script src="../../../../node_modules/@smartdesign/header-layout/dist/header-layout-with-externals.js"></script>
     <script src="../../../../node_modules/@smartdesign/button/dist/button-with-externals.js"></script>
     <script src="../../../../node_modules/@smartdesign/lit-input/dist/input-with-externals.js"></script>
     <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
     <div id="declarative-example-root">
         <sd-toolbar>
             <sd-button icon="../../../../node_modules/@smartdesign/icons/toolbar/refresh.svg" slot="left" onclick="reloadPage()"></sd-button>
             <h2 slot="middle">Allgemein</h2>
             <sd-button icon="../../../../node_modules/@smartdesign/icons/toolbar/cancel.svg" slot="right" onclick="redirectToHomePage()"></sd-button>
-        </sd-toolbar>        
+        </sd-toolbar>
     </div>
-</head>
-<body>
     <div class="examples">
         <div class="example-container">
             <span>Turniername</span>
-            <sd-lit-input id="turnierName" type="text" name="turnierName" required  class="smartdesign-global-smartsearch" placeholder="Fußballturnier Controlling"></sd-lit-input>
+            <sd-lit-input id="turnierName" type="text" name="turnierName" required placeholder="Fußballturnier Controlling"></sd-lit-input>
         </div>
         <div class="example-container">
             <span>Startdatum</span>
-            <sd-lit-input type="date" id="startDatum" name="startDatum" required class="smartdesign-global-smartsearch"></sd-lit-input>
+            <sd-lit-input type="date" id="startDatum" name="startDatum" required></sd-lit-input>
         </div>
         <div class="example-container">
             <span>Anmeldeschluss</span>
@@ -46,7 +46,7 @@
                 <sd-button type="submit" primary> Turnier erstellen </sd-button>
             </div>
         </form>
-        <script src= "./create-turnier.js"></script>
     </div>
+    <script src="./create-turnier.js"></script>
 </body>
 </html>
