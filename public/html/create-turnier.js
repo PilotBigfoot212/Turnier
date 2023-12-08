@@ -34,7 +34,7 @@ async function createTurnier() {
     };
 
     try {
-        const response = await fetch("https://turniersystem.onrender.com/html/create-turnier.html", {
+        const response = await fetch("/api/create-turnier", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -54,6 +54,7 @@ async function createTurnier() {
         alert("Fehler beim Erstellen des Turniers. Bitte versuche es erneut.");
     }
 }
+
 
 function submitForm() {
     if (validateForm()) {

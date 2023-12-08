@@ -41,11 +41,11 @@
             <span>Kosten</span>
             <sd-lit-input type="text" id="kosten" name="kosten" required placeholder="€" oninput="formatCurrency(this)" class="smartdesign-global-smartsearch"></sd-lit-input>
         </div>
-        <form id="tournamentForm">
+        <form id="tournamentForm" onsubmit="event.preventDefault(); createTurnier();">
             <div class="parent-container">
-              <sd-button type="submit" primary onclick="submitForm()" > Turnier erstellen </sd-button>
+                <sd-button type="submit" primary> Turnier erstellen </sd-button>
             </div>
-            </form>
+        </form>
         <script src= "./create-turnier.js"></script>
     </div>
 </body>

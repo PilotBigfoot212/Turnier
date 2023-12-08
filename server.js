@@ -37,6 +37,16 @@ app.get('/recent-turniere', async (req, res) => {
         res.status(500).json({ message: error.message });
       };
 });
+app.post('/api/create-turnier', async (req, res) => {
+    try {
+        const tournamentData = req.body;
+        const createdTurnier = await Turnier.create(tournamentData);
+        res.status(201).json(createdTurnier);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ message: 'Fehler beim Erstellen des Turniers' });
+    }
+});
 
 mongoose
     .connect(process.env.DATABASE_URL)
