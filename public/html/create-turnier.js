@@ -35,7 +35,7 @@ async function createTurnier() {
     };
 
     try {
-        const response = await fetch("/api/create-turnier", {
+        const response = await fetch("https://turniersystem.onrender.com/api/create-turnier", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -63,4 +63,5 @@ function submitForm() {
     if (validateForm()) {
         createTurnier();
     }
+    return false; 
 }
