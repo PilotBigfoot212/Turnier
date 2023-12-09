@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const turnierRoutes = require('./routes/turnierRoutes'); 
+const turnierController = require('./controllers/turnierController');
+
 
 require('dotenv').config();
 
@@ -9,25 +10,20 @@ const app = express();
 
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
-// Serve files from node_modules
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
-
-app.use('/public/styles', express.static(
-    path.join(__dirname, 'public', 'styles'),
-    {
-        setHeaders: (res) => {
-            res.type('text/css');
-        },
-    }
-));
-app.use(turnierRoutes);
-
-const Turnier = require('./models/turnierModel');
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html', 'index.html'));
+});
+
+app.get('/recent-turniere', async (req, res) => {
+     await turnierController.getRecentTurniere(req, res);
+});
+
+app.post('/api/create-turnier', async (req, res) => {
+   await turnierController.createTurnier(req,res);
 });
 
 mongoose

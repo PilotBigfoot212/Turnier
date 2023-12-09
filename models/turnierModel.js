@@ -4,7 +4,7 @@ const turnierSchema = mongoose.Schema(
     {
         turnierName:{
             type: String,
-            rrequired: [true, "Bitte gebe den Turniernamen an."]
+            required: [true, "Bitte gebe den Turniernamen an."]
         },
         startDatum: {
             type: Date, 
