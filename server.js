@@ -26,6 +26,14 @@ app.use('/public/styles', express.static(
 
 const Turnier = require('./models/turnierModel');
 
+app.get('/create-turnier', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'html', 'create-turnier.html'));
+});
+
+app.get('/anzeige-turnier', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'html', 'anzeige-turnier.html'));
+});
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html', 'index.html'));
 });
