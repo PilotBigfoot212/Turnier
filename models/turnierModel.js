@@ -2,6 +2,10 @@ const mongoose = require ('mongoose')
 
 const turnierSchema = mongoose.Schema(
     {
+        turnierMaster:{
+            type: String,
+            required: [true]
+        },
         turnierName:{
             type: String,
             required: [true, "Bitte gebe den Turniernamen an."]
@@ -25,7 +29,16 @@ const turnierSchema = mongoose.Schema(
         kosten: {
             type: String,
             required: [true, "Bitte die Kosten angeben."]
+        },
+        turnierTeilnehmer:{
+            type: Array,
+            required: [true]
+        },
+        turnierTeilnehmerAnzahl:{
+            type: Number,
+            required: [true, "Bitte Maximal Anzahl angeben"]
         }
+
     },
     {
         timestamps:true

@@ -14,12 +14,27 @@ app.use(express.static('public'));
 
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
+app.get('/create-turnier', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'html', 'create-turnier.html'));
+});
+
+app.get('/anzeige-turnier', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'html', 'anzeige-turnier.html'));
+});
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html', 'index.html'));
 });
 
 app.get('/recent-turniere', async (req, res) => {
      await turnierController.getRecentTurniere(req, res);
+});
+app.get('/recent-turniereMaster', async (req, res) => {
+    await turnierController.getRecentTurniereMaster(req, res);
+});
+
+app.get('/freie-turniere', async (req, res) => {
+    await turnierController.getTurniereMitTeilnehmerAnzahl(req, res);
 });
 
 app.post('/api/create-turnier', async (req, res) => {
