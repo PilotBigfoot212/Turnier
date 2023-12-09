@@ -40,7 +40,9 @@ async function createTurnier() {
         endDatum: document.getElementById("endDatum").value,
         veranstaltungsort: document.getElementById("veranstaltungsort").value,
         startZeit: document.getElementById("startZeit").value,
-        kosten: document.getElementById("kosten").value
+        kosten: document.getElementById("kosten").value,
+        //TODO Solange die Smartwe-ID noch nicht verfügbar ist, wird die IP-Adresse des Hosts als Wert für turnierMaster verwendet.
+        turnierMaster: window.location.hostname,
     };
 
     try {
