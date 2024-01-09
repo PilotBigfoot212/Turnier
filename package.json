@@ -29,6 +29,7 @@
     "icons": "^1.0.0",
     "mongodb": "^3.6.9",
     "mongoose": "^8.0.1",
+    "punycode": "^2.3.1",
     "query-string": "^8.1.0"
   },
   "devDependencies": {
